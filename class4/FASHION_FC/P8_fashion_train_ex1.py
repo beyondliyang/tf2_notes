@@ -22,6 +22,8 @@ def generateds(path, txt):
     for content in contents:
         value = content.split()  # 以空格分开，存入数组
         img_path = path + value[0]
+        if not os.path.exists(img_path):
+            continue
         img = Image.open(img_path)
         img = np.array(img.convert('L'))
         img = img / 255.
